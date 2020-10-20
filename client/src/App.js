@@ -10,11 +10,8 @@ function App() {
 
   return (
     <div className="App">
-      <Switch>
-        <Route path='/Home' />
-        <Route path='/login' />
-          
-      </Switch>
+      <Home />
+      <Login />
       
     </div>
   );

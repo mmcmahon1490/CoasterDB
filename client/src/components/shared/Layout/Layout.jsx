@@ -1,13 +1,15 @@
 import React from "react";
-import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
 import "./Layout.css";
 
-const Layout = () => {
+export default function Layout(props) {
+  const { currentUser, handleLogout } = props;
   return (
-    <div className='layout'>
-      <Nav />
-      <Footer />
+    <div className="App">
+      <Header
+        currentUser={currentUser}
+        handleLogout={handleLogout}
+      />
+      {props.children}
     </div>
   )
 }
