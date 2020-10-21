@@ -1,5 +1,5 @@
 class CoastersController < ApplicationController
-  # before_action :set_coaster, only: [:show, :update, :destroy]
+  before_action :set_coaster, only: [:show, :update, :destroy]
   # before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /coasters
