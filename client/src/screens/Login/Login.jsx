@@ -26,7 +26,8 @@ export default function Login(props) {
     }}>
       <h3>login</h3>
       {
-        error && <p>{error}</p>
+        error &&
+        <p>{error}</p>
       }
       <label>
         username:
@@ -46,7 +47,7 @@ export default function Login(props) {
           onChange={handleChange}
         />
       </label>
-      {/* <Link to='/register'>register</Link> */}
+      <Link to='/register'>register</Link>
       <button>login</button>
     </form>
   )
