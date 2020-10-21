@@ -2,17 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Route, useHistory, Switch } from 'react-router-dom';
 import './App.css';
 // import Home from './screens/Home/Home'
-import { getAllCoasters } from './services/coasters.js';
+import { getAllCoasters, getOneCoaster } from './services/coasters.js';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 
 import Register from './screens/Register/Register'
 import Login from './screens/Login/Login'
+import CoasterCreate from './screens/CoasterCreate/CoasterCreate';
+import CoasterEdit from './screens/CoasterEdit/CoasterEdit';
+import Home from './screens/Home/Home'
 import Footer from './components/shared/Footer/Footer'
 import Nav from './components/shared/Nav/Nav'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
+  const [coaster, setCoaster] = useState({});
 
   useEffect(() => {
     const getCoasters = async () => {
@@ -40,15 +44,31 @@ function App() {
     removeToken();
   }
 
+  const handleOneCoaster = async (id) => {
+    const coasterData = await getOneCoaster(id)
+    setCoaster(coasterData);
+  }
+
+
+
   return (
     <div className="App">
         <Nav />
       <Switch>
+      <Route path='/home'>
+          <Home />
+        </Route>
         <Route path='/login'>
           <Login handleLogin={handleLogin} />
         </Route>
         <Route path='/register'>
           <Register handleRegister={handleRegister} />
+        </Route>
+        <Route path='/create'>
+          <CoasterCreate />
+        </Route>
+        <Route path='/edit'>
+          <CoasterEdit />
         </Route>
         <Route path='/'>
         </Route>
