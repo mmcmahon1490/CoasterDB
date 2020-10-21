@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <HomeLayout>
       <div className='home-text-container'>
-        <h5>go cats</h5>
+        <h3>go cats</h3>
       </div>
     </HomeLayout>
     

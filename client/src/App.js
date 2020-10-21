@@ -4,6 +4,9 @@ import './App.css';
 import Home from './screens/Home/Home'
 import { getAllCoasters } from './services/coasters.js';
 
+import Register from './screens/Register/Register'
+import Login from './screens/Login/Login'
+
 function App() {
 
   useEffect(() => {
@@ -17,8 +20,8 @@ function App() {
 
   return (
     <div className="App">
-      <Home />
-      
+      <Register />
+      <Login />
     </div>
   );
 }
