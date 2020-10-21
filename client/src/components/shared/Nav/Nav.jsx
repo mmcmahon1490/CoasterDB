@@ -5,7 +5,7 @@ import './Nav.css';
 const Nav = () => {
   return (
     <nav>
-      <h3>go cats</h3>
+      <h4>go cats</h4>
     </nav>
   )
 }
