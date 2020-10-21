@@ -7,6 +7,8 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 
 import Register from './screens/Register/Register'
 import Login from './screens/Login/Login'
+import Footer from './components/shared/Footer/Footer'
+import Nav from './components/shared/Nav/Nav'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -40,6 +42,7 @@ function App() {
 
   return (
     <div className="App">
+        <Nav />
       <Switch>
         <Route path='/login'>
           <Login handleLogin={handleLogin} />
@@ -50,6 +53,7 @@ function App() {
         <Route path='/'>
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

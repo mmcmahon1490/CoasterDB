@@ -4,9 +4,9 @@ import './Footer.css'
 const Footer = () => {
   return (
     <footer>
-      <h3>dummy text</h3>
-      <h3>dummy text</h3>
-      <h3>dummy text</h3>
+      <h6>dummy text</h6>
+      <h6>dummy text</h6>
+      <h6>dummy text</h6>
     </footer>
   )
 }
