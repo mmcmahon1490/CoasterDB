@@ -100,7 +100,7 @@ function App() {
         <Route path='/search'>
           <SearchResults />
         </Route>
-        <Route path='/coaster/{coaster.id}'>
+        <Route path='/coaster/:id'>
           <CoasterCard />
         </Route>
         <Route path='/'>

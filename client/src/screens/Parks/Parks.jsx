@@ -5,13 +5,13 @@ import { getAllParks, getOnePark } from '../../services/parks';
 
 
 const Parks = (props) => {
-  const [coaster, setCoaster] = useState([]);
-  const [park, setPark] = useState([]);
+  const [coasters, setCoasters] = useState([]);
+  const [parks, setParks] = useState([]);
 
   useEffect(() => {
     const getCoasters = async () => {
       const results = await getAllCoasters()
-      setCoaster(results)
+      setCoasters(results)
     }
     getCoasters()
   }, [])
@@ -19,7 +19,7 @@ const Parks = (props) => {
   useEffect(() => {
     const getParks = async () => {
       const results = await getAllParks()
-      setPark(results)
+      setParks(results)
     }
     getParks()
   }, [])
@@ -28,12 +28,12 @@ const Parks = (props) => {
 
   return (
     <div>
-      {park.map((parks) => (
-        <p key={parks.id}>{parks.name}</p>
+      {parks.map((park) => (
+        <p key={park.id}>{park.name}</p>
       ))}
       <Link to='coastercard'>click here for coaster</Link>
-      {coaster.map( (coasters) => (
-        <Link to={`/coaster/{coaster.id}`}><p key={coasters.id}>{coasters.name}</p></Link>
+      {coasters.map( (coaster) => (
+        <Link to={`/coaster/${coaster.id}`}><p key={coaster.id}>{coaster.name}</p></Link>
       ))}
     </div>
   )
