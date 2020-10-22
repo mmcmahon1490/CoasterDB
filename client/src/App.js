@@ -9,9 +9,12 @@ import Register from './screens/Register/Register'
 import Login from './screens/Login/Login'
 import CoasterCreate from './screens/CoasterCreate/CoasterCreate';
 import CoasterEdit from './screens/CoasterEdit/CoasterEdit';
+import Parks from './screens/Parks/Parks';
 import Home from './screens/Home/Home'
 import Footer from './components/shared/Footer/Footer'
+import Header from './components/shared/Header/Header'
 import Nav from './components/shared/Nav/Nav'
+import SearchResults from './screens/SearchResults/SearchResults'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -32,6 +35,7 @@ function App() {
     history.push('/')
   }
 
+  
   const handleRegister = async (registerData) => {
     const userData = await registerUser(registerData);
     setCurrentUser(userData);
@@ -44,15 +48,16 @@ function App() {
     removeToken();
   }
 
+
   const handleOneCoaster = async (id) => {
     const coasterData = await getOneCoaster(id)
     setCoaster(coasterData);
   }
 
 
-
   return (
     <div className="App">
+      <Header />
         <Nav />
       <Switch>
       <Route path='/home'>
@@ -70,10 +75,16 @@ function App() {
         <Route path='/edit'>
           <CoasterEdit />
         </Route>
+        <Route path='/parks'>
+          <Parks />
+        </Route>
+        <Route path='/search'>
+          <SearchResults />
+        </Route>
         <Route path='/'>
         </Route>
       </Switch>
-      <Footer />
+        <Footer />
     </div>
   );
 }

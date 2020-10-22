@@ -86,3 +86,17 @@
 //   )
   
 // }
+
+import React, { useState, useEffect } from 'react';
+import './CoasterCreate.css'
+
+const CoasterCreate = () => {
+  return (
+      <div className='CoasterCreate-container'>
+        <h3>create coaster form</h3>
+      </div>
+    
+  )
+}
+
+export default CoasterCreate;
