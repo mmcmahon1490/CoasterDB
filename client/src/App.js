@@ -13,24 +13,27 @@ import CoasterEdit from './screens/CoasterEdit/CoasterEdit';
 import CoasterCard from './screens/CoasterCard/CoasterCard';
 import Parks from './screens/Parks/Parks';
 import Home from './screens/Home/Home'
+import SearchResults from './screens/SearchResults/SearchResults'
 import Footer from './components/shared/Footer/Footer'
 import Header from './components/shared/Header/Header'
 import Nav from './components/shared/Nav/Nav'
-import SearchResults from './screens/SearchResults/SearchResults'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
-  const [coaster, setCoaster] = useState({});
+
+  const [park, setPark] = useState({});
   // const [coasters, setCoasters] = useState([])
 
+  
+
   useEffect(() => {
-    const getCoasters = async () => {
-      const results = await getAllCoasters()
-      console.log(results)
+    const handleVerify = async () => {
+      const userData = await verifyUser();
+      setCurrentUser(userData)
     }
-    getCoasters()
-  })
+    handleVerify();
+  }, [])
   
   const handleLogin = async (loginData) => {
     const userData = await loginUser(loginData);
@@ -45,11 +48,11 @@ function App() {
     history.push('/')
   };
 
-  const handleCoasterCreate = async (coasterData) => {
-    const newCoaster = await postCoaster(coasterData);
-    setCoaster((prevState) => [...prevState, newCoaster]);
-    history.push('/coasters');
-  }
+  // const handleCoasterCreate = async (coasterData) => {
+  //   const newCoaster = await postCoaster(coasterData);
+  //   setCoaster((prevState) => [...prevState, newCoaster]);
+  //   history.push('/coasters');
+  // }
 
   const handleLogout = () => {
     setCurrentUser(null);
@@ -58,10 +61,10 @@ function App() {
   };
 
 
-  const handleOneCoaster = async (id) => {
-    const coasterData = await getOneCoaster(id)
-    setCoaster(coasterData);
-  };
+  // const handleOneCoaster = async (id) => {
+  //   const coasterData = await getOneCoaster(id)
+  //   setCoaster(coasterData);
+  // };
 
  
 
