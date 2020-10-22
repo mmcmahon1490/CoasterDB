@@ -30,5 +30,26 @@ User.destroy_all
 @wildernessrun = Coaster.create(name: 'Wilderness Run', make: 'Intamin', model: 'Childrens', height: 19, speed: 6, inversions: 0, park:@cedarpoint)
 @woodstockexpress = Coaster.create(name: 'Woodstock Express', make: 'Vekoma', model: 'Junior', height: 43, speed: 29, inversions: 0, park:@cedarpoint)
 
+@bgw = Park.create(name: 'Busch Gardens Williamsburg', location: 'Williamssburg, Virginia')
+@alpengeist = Coaster.create(name: 'Alpengeist', make: 'B&M', model: 'Inverted', height: 195, speed: 67, inversions: 6, park:@bgw)
+
+@kentuckykingdom = Park.create(name: 'Kentucky Kingdom', location: 'Louisville, Kentucky')
+@lightningrun = Coaster.create(name: 'Lightning Run', make: 'Chance', model: 'Hyper GT-X', height: 100, speed: 55, inversions: 0, park:@kentuckykingdom)
+
+@dollywood = Park.create(name: 'Dollywood', location: 'Pigeon Forge, Tennessee')
+@lightningrod = Coaster.create(name: 'Lightning Rod', make: 'Rocky Mountain Construction', model: 'Topper Track', height: 165, speed: 73, inversions: 0, park:@dollywood)
+
+@sfne = Park.create(name: 'Six Flags New England', location: 'Agawam, Massachusetts')
+@superman = Coaster.create(name: 'Superman the Ride', make: 'Intamin', model: 'Mega', height: 208, speed: 77, inversions: 0, park:@sfne)
+@wickedcyclone = Coaster.create(name: 'Wicked Cyclone', make: 'Rock Mountain Construction', model: 'IBox', height: 109, speed: 55, inversions: 3, park:@sfne)
+
+
+
+
 puts "#{Park.count} parks created"
 puts "#{Coaster.count} coasters created"
+
+# git add .
+# git commit 
+# git push heroku main
+# heroku run rails db:seed
