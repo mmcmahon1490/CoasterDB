@@ -93,7 +93,8 @@ import './CoasterCreate.css'
 const CoasterCreate = () => {
   return (
       <div className='CoasterCreate-container'>
-        <h3>create coaster form</h3>
+      <h3>create coaster form</h3>
+      <h3>go cats</h3>
       </div>
     
   )
