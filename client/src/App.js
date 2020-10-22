@@ -9,6 +9,7 @@ import Register from './screens/Register/Register'
 import Login from './screens/Login/Login'
 import CoasterCreate from './screens/CoasterCreate/CoasterCreate';
 import CoasterEdit from './screens/CoasterEdit/CoasterEdit';
+import CoasterCard from './screens/CoasterCard/CoasterCard';
 import Parks from './screens/Parks/Parks';
 import Home from './screens/Home/Home'
 import Footer from './components/shared/Footer/Footer'
@@ -86,6 +87,9 @@ function App() {
         </Route>
         <Route path='/search'>
           <SearchResults />
+        </Route>
+        <Route path='/coastercard'>
+          <CoasterCard />
         </Route>
         <Route path='/'>
         </Route>
