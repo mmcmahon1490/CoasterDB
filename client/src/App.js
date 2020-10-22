@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Route, useHistory, Switch } from 'react-router-dom';
 import './App.css';
 // import Home from './screens/Home/Home'
-import { getAllCoasters, getOneCoaster, putCoaster } from './services/coasters.js';
+import { getAllParks, destroyPark, postPark, putPark } from './services/parks';
+import { destroyCoaster, getAllCoasters, getOneCoaster, postCoaster, putCoaster } from './services/coasters';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 
 import Register from './screens/Register/Register'
@@ -35,26 +36,32 @@ function App() {
     const userData = await loginUser(loginData);
     setCurrentUser(userData);
     history.push('/')
-  }
+  };
 
   
   const handleRegister = async (registerData) => {
     const userData = await registerUser(registerData);
     setCurrentUser(userData);
     history.push('/')
+  };
+
+  const handleCoasterCreate = async (coasterData) => {
+    const newCoaster = await postCoaster(coasterData);
+    setCoaster((prevState) => [...prevState, newCoaster]);
+    history.push('/coasters');
   }
 
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem('authToken');
     removeToken();
-  }
+  };
 
 
   const handleOneCoaster = async (id) => {
     const coasterData = await getOneCoaster(id)
     setCoaster(coasterData);
-  }
+  };
 
  
 
