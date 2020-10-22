@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, useHistory, Switch } from 'react-router-dom';
 import './App.css';
 // import Home from './screens/Home/Home'
-import { getAllCoasters, getOneCoaster } from './services/coasters.js';
+import { getAllCoasters, getOneCoaster, putCoaster } from './services/coasters.js';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 
 import Register from './screens/Register/Register'
@@ -55,6 +55,8 @@ function App() {
     const coasterData = await getOneCoaster(id)
     setCoaster(coasterData);
   }
+
+ 
 
   // const fetchCoasters = async () => {
   //   const coasterData = await getAllCoasters();

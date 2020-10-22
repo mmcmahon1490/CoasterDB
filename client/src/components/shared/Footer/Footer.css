@@ -1,3 +1,28 @@
-h3 {
-  color: blue;
+footer {
+  display: flex;
+  width: 100vw;
+  background-color: #649EB4;
+  max-height: 324px;
+  height: 100%;
+  flex-grow: 1;
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+.footer {
+  display: flex;
+  width: 80vw;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 30px auto 15px;
+}
+
+.about-us {
+  font-size: 15px;
+  margin-top: 10px;
+  color: white;
+}
+
+.created-by{
+  display: flex;
 }
