@@ -56,8 +56,8 @@ const CoasterCard = () => {
         <p>{coaster.name}</p>
         <p>{coaster.make}</p>
         <p>{coaster.model}</p>
-        <p>{coaster.height}</p>
-        <p>{coaster.speed}</p>
+        <p>{coaster.height} feet</p>
+        <p>{coaster.speed} mph</p>
         <p>{coaster.inversions}</p>
       </div>
 
