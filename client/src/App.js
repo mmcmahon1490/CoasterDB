@@ -20,6 +20,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
   const [coaster, setCoaster] = useState({});
+  // const [coasters, setCoasters] = useState([])
 
   useEffect(() => {
     const getCoasters = async () => {
@@ -53,6 +54,11 @@ function App() {
     const coasterData = await getOneCoaster(id)
     setCoaster(coasterData);
   }
+
+  // const fetchCoasters = async () => {
+  //   const coasterData = await getAllCoasters();
+  //   setCoasters(coasterData);
+  // }
 
 
   return (
