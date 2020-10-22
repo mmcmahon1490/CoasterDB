@@ -29,15 +29,38 @@
 //   )
 // }
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getOneCoaster } from '../../services/coasters';
 import { Link } from 'react-router-dom';
 
 const CoasterCard = () => {
+  const [coaster, setCoaster] = useState('');
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getCoaster = async() => {
+      const coaster = await getOneCoaster(id);
+      setCoaster(coaster);
+    }
+    getCoaster();
+  }, [id])
+
+  console.log(coaster.name)
+
   return (
     <div>
     <Link to='/edit'>edit button</Link>
-      <h1>coaster card</h1>
+      <h1>{coaster.name}</h1>
+      <div className='coaster-details'>
+        <p>{coaster.name}</p>
+        <p>{coaster.make}</p>
+        <p>{coaster.model}</p>
+        <p>{coaster.height}</p>
+        <p>{coaster.speed}</p>
+        <p>{coaster.inversions}</p>
+      </div>
+
       </div>
   )
 }
