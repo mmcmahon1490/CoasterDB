@@ -25,7 +25,7 @@ function App() {
   const history = useHistory();
 
   const [park, setPark] = useState({});
-  // const [coasters, setCoasters] = useState([])
+  const [coasters, setCoasters] = useState([])
 
   
 
@@ -33,6 +33,8 @@ function App() {
     const handleVerify = async () => {
       const userData = await verifyUser();
       setCurrentUser(userData)
+      const allCoasters = await getAllCoasters();
+      setCoasters(allCoasters)
     }
     handleVerify();
   }, [])
@@ -43,7 +45,6 @@ function App() {
     history.push('/')
   };
 
-  
   const handleRegister = async (registerData) => {
     const userData = await registerUser(registerData);
     setCurrentUser(userData);
@@ -60,8 +61,17 @@ function App() {
     setCurrentUser(null);
     localStorage.removeItem('authToken');
     removeToken();
-  };
+  }
 
+  const handleCoasterEdit = async (id, coasterData) => {
+    console.log(id, coasterData)
+    const updatedCoaster = await putCoaster(id, coasterData);
+    setCoasters(prevState => prevState.map(coaster => {
+      return coaster.id === Number(id) ? updatedCoaster : coaster
+    }))
+    history.push('/coaster/:id')
+  }
+  
 
   // const handleOneCoaster = async (id) => {
   //   const coasterData = await getOneCoaster(id)
@@ -93,8 +103,11 @@ function App() {
         <Route path='/create/:id'>
           <CoasterCreate handleCoasterCreate={handleCoasterCreate} />
         </Route>
-        <Route path='/edit'>
-          <CoasterEdit />
+        <Route path='/coaster/edit/:id'>
+          <CoasterEdit
+            coasters={coasters}
+            handleCoasterEdit={handleCoasterEdit}
+          />
         </Route>
         <Route path='/parks/:id'>
           <ParkDetail />
@@ -105,7 +118,7 @@ function App() {
         <Route path='/search'>
           <SearchResults />
         </Route>
-        <Route path='/coaster/:id'>
+        <Route path='/park/:park_id/coaster/:id'>
           <CoasterCard />
         </Route>
         <Route path='/'>

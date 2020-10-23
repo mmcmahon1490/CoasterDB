@@ -47,7 +47,7 @@ const ParkDetail = () => {
                 return <div>{coaster.name}</div>
               })}</p> */}
       {park.coasters.map( (coaster) => (
-        <Link to={`/coaster/${coaster.id}`}><p key={coaster.id}>{coaster.name}</p></Link>
+        <Link to={`/park/${park.id}/coaster/${coaster.id}`}><p key={coaster.id}>{coaster.name}</p></Link>
       ))}
               
           

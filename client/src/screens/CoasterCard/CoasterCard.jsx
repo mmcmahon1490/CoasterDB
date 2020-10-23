@@ -29,13 +29,14 @@
 // }
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getOneCoaster } from "../../services/coasters";
-import { Link } from "react-router-dom";
+import { destroyCoaster, getOneCoaster } from "../../services/coasters";
+import { Link, useHistory, useParams } from "react-router-dom";
+
 
 const CoasterCard = () => {
   const [coaster, setCoaster] = useState(null);
-  const { id } = useParams();
+  const { id, park_id } = useParams();
+  const history  = useHistory();
 
   useEffect(() => {
     const getCoaster = async () => {
@@ -45,12 +46,18 @@ const CoasterCard = () => {
     getCoaster();
   }, [id]);
 
+  const deleteCoaster = (id) => {
+    destroyCoaster(id)
+    history.push(`/parks/${park_id}`)
+  }
+
   return (
     <div>
       {coaster && (
         <>
-          <Link to="/edit">edit button</Link>
+          <Link to={`/coaster/edit/${coaster.id}`}>edit button</Link>
           <h1>{coaster.name}</h1>
+          <button onClick={()=>deleteCoaster(coaster.id)}>delete</button>
 
           <div className="coaster-details">
             {/* <p>{coaster.name}</p>

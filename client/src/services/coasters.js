@@ -16,6 +16,7 @@ export const postCoaster = async (coasterData) => {
 }
 
 export const putCoaster = async (id, coasterData) => {
+  console.log(coasterData)
   const resp = await api.put(`/coasters/${id}`, {coaster: coasterData});
   return resp.data;
 }
