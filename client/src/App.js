@@ -14,12 +14,14 @@ import CoasterCard from './screens/CoasterCard/CoasterCard';
 import Parks from './screens/Parks/Parks';
 import Home from './screens/Home/Home'
 import SearchResults from './screens/SearchResults/SearchResults'
+import ParkDetail from './screens/ParkDetail/ParkDetail'
 import Footer from './components/shared/Footer/Footer'
 import Header from './components/shared/Header/Header'
 import Nav from './components/shared/Nav/Nav'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [coaster, setCoaster] = useState();
   const history = useHistory();
 
   const [park, setPark] = useState({});
@@ -48,11 +50,11 @@ function App() {
     history.push('/')
   };
 
-  // const handleCoasterCreate = async (coasterData) => {
-  //   const newCoaster = await postCoaster(coasterData);
-  //   setCoaster((prevState) => [...prevState, newCoaster]);
-  //   history.push('/coasters');
-  // }
+  const handleCoasterCreate = async (coasterData) => {
+    const newCoaster = await postCoaster(coasterData);
+    setCoaster((prevState) => [...prevState, newCoaster]);
+    history.push('/coasters');
+  }
 
   const handleLogout = () => {
     setCurrentUser(null);
@@ -88,13 +90,16 @@ function App() {
         <Route path='/register'>
           <Register handleRegister={handleRegister} />
         </Route>
-        <Route path='/create'>
-          <CoasterCreate />
+        <Route path='/create/:id'>
+          <CoasterCreate handleCoasterCreate={handleCoasterCreate} />
         </Route>
         <Route path='/edit'>
           <CoasterEdit />
         </Route>
-        <Route path='/parks'>
+        <Route path='/parks/:id'>
+          <ParkDetail />
+        </Route>
+        <Route path='/parks/'>
           <Parks />
         </Route>
         <Route path='/search'>

@@ -53,12 +53,19 @@ const CoasterCard = () => {
           <h1>{coaster.name}</h1>
 
           <div className="coaster-details">
-            <p>{coaster.name}</p>
+            {/* <p>{coaster.name}</p>
             <p>{coaster.make}</p>
             <p>{coaster.model}</p>
             <p>{coaster.height} feet</p>
             <p>{coaster.speed} mph</p>
-            <p>{coaster.inversions}</p>
+            <p>{coaster.inversions}</p> */}
+
+            <p>{coaster.name} is a {coaster.model} Coaster
+            manufactured by {coaster.make}.
+            {coaster.name} is {coaster.height} feet tall,
+            goes {coaster.speed} mph,
+            and has {coaster.inversions} inversions.
+            </p>
           </div>
         </>
       )}

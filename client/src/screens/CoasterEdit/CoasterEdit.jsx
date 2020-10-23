@@ -44,16 +44,55 @@
 // }
 
 
-import React, { useState, useEffect } from 'react';
-import './CoasterEdit.css'
+// import React, { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
+// import './CoasterEdit.css'
 
-const Coasteredit = () => {
-  return (
-      <div className='Coasteredit-container'>
-        <h3>edit coaster form</h3>
-      </div>
-    
-  )
-}
+// const Coasteredit = (props) => {
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     make: '',
+//     model: '',
+//     height: '',
+//     speed: '',
+//     inversions: ''
+//   })
 
-export default Coasteredit;
+//   const { handleCoasterEdit, coasters }
+//   const { id } = useParams();
+
+//   useEffect(() => {
+//     const prefilledForm = () => {
+//       const { name, make, model, height, speed, inversions } = coasters.find === Name(id));
+//       setFormData({ name, make, model, height, speed, inversions });
+// }
+// if (coasters.length) {
+//       prefilledForm()
+//     }
+//   }, [coasters, id])
+
+// const handleChange = (e) => {
+//   const { name, value } = e.target;
+//   setFormData({[name]: value})
+//   }
+
+//   return (
+//       <form onSubmit={(e)=>{
+//       e.preventDefault();
+//       handleCoasterEdit(id, formData);
+//       }}>
+//         <h3>edit coaster form</h3>
+//       <label>
+//         name:
+//       <input
+//           type='text'
+//           name='name'
+//           value={formData.name}
+//           onchange={handleChange}
+//         />
+//       </label>
+//     </form>
+//   )
+// }
+
+// export default Coasteredit;

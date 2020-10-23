@@ -5,7 +5,6 @@ import './Nav.css';
 const Nav = () => {
   return (
     <nav>
-      <Link to='/create'>add a coaster</Link>
       <Link to='/parks'>find a park</Link>
       <Link to='/search'>search</Link>
     </nav>

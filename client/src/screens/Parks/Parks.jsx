@@ -29,12 +29,14 @@ const Parks = (props) => {
   return (
     <div>
       {parks.map((park) => (
-        <p key={park.id}>{park.name}</p>
+        <Link to={`/parks/${park.id}`}><p key={park.id}>{park.name}</p>
+        </Link>
       ))}
-      <Link to='coastercard'>click here for coaster</Link>
+
+      {/* <Link to='coastercard'>click here for coaster</Link>
       {coasters.map( (coaster) => (
         <Link to={`/coaster/${coaster.id}`}><p key={coaster.id}>{coaster.name}</p></Link>
-      ))}
+      ))} */}
     </div>
   )
 }
