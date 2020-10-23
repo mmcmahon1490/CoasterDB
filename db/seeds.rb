@@ -11,6 +11,7 @@ Park.destroy_all
 User.destroy_all
 
 @user = User.create(username: 'admin', email: 'admin@email.com', password: '123456')
+
 @cedarpoint = Park.create(name: 'Cedar Point', location: 'Sandusky, Ohio')
 @bluestreak = Coaster.create(name: 'Blue Streak', make: 'Philadelphia Toboggan Company', model: 'Wooden', height: 78, speed: 40, inversions: 0, park:@cedarpoint)
 @ccmr = Coaster.create(name: 'Cedar Creek Mine Ride', make: 'Arrow', model: 'Mine Train', height: 48 , speed: 42, inversions: 0, park:@cedarpoint)
