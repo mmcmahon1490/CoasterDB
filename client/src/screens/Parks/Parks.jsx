@@ -33,10 +33,7 @@ const Parks = (props) => {
         </Link>
       ))}
 
-      {/* <Link to='coastercard'>click here for coaster</Link>
-      {coasters.map( (coaster) => (
-        <Link to={`/coaster/${coaster.id}`}><p key={coaster.id}>{coaster.name}</p></Link>
-      ))} */}
+     
     </div>
   )
 }

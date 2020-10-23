@@ -1,13 +1,14 @@
 import React, { useEffect, useState }from "react";
 import { useParams } from "react-router-dom";
 import { getOnePark } from "../../services/parks";
+import { getAllCoasters, getOneCoaster } from '../../services/coasters';
   import { Link } from "react-router-dom";
 
 const ParkDetail = () => {
   
 
   const [park, setPark] = useState(null);
-  const [coaster, setCoaster] = useState(null);
+  const [coasters, setCoasters] = useState([]);
     const { id } = useParams();
 
     useEffect(() => {
@@ -18,6 +19,14 @@ const ParkDetail = () => {
       getPark();
     }, [id])
   
+    useEffect(() => {
+      const getCoasters = async () => {
+        const results = await getAllCoasters()
+        setCoasters(results)
+      }
+      getCoasters()
+    }, [])
+  
 
     return (
       <div>
@@ -25,6 +34,7 @@ const ParkDetail = () => {
           <>
             <Link to="/edit">edit button</Link>
             <h1>{park.name}</h1>
+            <h3>{park.location}</h3>
             <Link to={`/create/${park.id}`}>add a coaster</Link>
             <div className="park-details">
               {/* <p>{coaster.name}</p>
@@ -33,12 +43,13 @@ const ParkDetail = () => {
             <p>{coaster.height} feet</p>
             <p>{coaster.speed} mph</p>
             <p>{coaster.inversions}</p> */}
-              <p>{park.coasters.map((coaster) => {
+              {/* <p>{park.coasters.map((coaster) => {
                 return <div>{coaster.name}</div>
-              })}</p>
-      {park.coasters.map( (coasters) => (
-        <Link to={`/coaster/:id{park.coaster.id}`}><p key={park.coasters.id}>{coasters.name}</p></Link>
+              })}</p> */}
+      {park.coasters.map( (coaster) => (
+        <Link to={`/coaster/${coaster.id}`}><p key={coaster.id}>{coaster.name}</p></Link>
       ))}
+              
           
               
             </div>
