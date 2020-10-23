@@ -54,7 +54,7 @@ function App() {
   const handleCoasterCreate = async (coasterData) => {
     const newCoaster = await postCoaster(coasterData);
     setCoaster((prevState) => [...prevState, newCoaster]);
-    history.push('/coasters');
+    history.push('/');
   }
 
   const handleLogout = () => {
@@ -95,13 +95,20 @@ function App() {
           <Home />
         </Route>
         <Route path='/login'>
-          <Login handleLogin={handleLogin} />
+          <Login
+            currentUser={currentUser}
+            handleLogin={handleLogin}
+          />
         </Route>
         <Route path='/register'>
-          <Register handleRegister={handleRegister} />
+          <Register
+            handleRegister={handleRegister}
+          />
         </Route>
         <Route path='/create/:id'>
-          <CoasterCreate handleCoasterCreate={handleCoasterCreate} />
+          <CoasterCreate
+            handleCoasterCreate={handleCoasterCreate}
+          />
         </Route>
         <Route path='/coaster/edit/:id'>
           <CoasterEdit
