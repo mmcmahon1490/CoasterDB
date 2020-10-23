@@ -1,12 +1,13 @@
 import React, { useEffect, useState }from "react";
 import { useParams } from "react-router-dom";
-  import { getOnePark } from "../../services/parks";
+import { getOnePark } from "../../services/parks";
   import { Link } from "react-router-dom";
 
 const ParkDetail = () => {
   
 
-    const [park, setPark] = useState(null);
+  const [park, setPark] = useState(null);
+  const [coaster, setCoaster] = useState(null);
     const { id } = useParams();
 
     useEffect(() => {
@@ -15,7 +16,8 @@ const ParkDetail = () => {
         setPark(park);
       };
       getPark();
-    }, [id]);
+    }, [id])
+  
 
     return (
       <div>
@@ -34,7 +36,10 @@ const ParkDetail = () => {
               <p>{park.coasters.map((coaster) => {
                 return <div>{coaster.name}</div>
               })}</p>
-            
+      {park.coasters.map( (coasters) => (
+        <Link to={`/coaster/:id{park.coaster.id}`}><p key={park.coasters.id}>{coasters.name}</p></Link>
+      ))}
+          
               
             </div>
           </>
@@ -45,3 +50,5 @@ const ParkDetail = () => {
 
 
 export default ParkDetail;
+
+
