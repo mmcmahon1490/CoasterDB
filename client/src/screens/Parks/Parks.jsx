@@ -27,15 +27,24 @@ const Parks = (props) => {
   
 
   return (
+    <>
     <div>
+      <Link to='/parkcreate/'>add a park</Link>
+    </div>
+    
+    <div>
+      
       {parks.map((park) => (
         <Link to={`/parks/${park.id}`}><p key={park.id}>{park.name}</p>
+          
         </Link>
       ))}
-
      
     </div>
+    </>
   )
+
+
 }
 
 export default Parks;
