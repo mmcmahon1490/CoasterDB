@@ -8,9 +8,6 @@ const ParkCreate = (props) => {
     location: '',
   })
   const { handleParkCreate } = props;
-  const { id } = useParams();
-
-  console.log(id)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +22,7 @@ const ParkCreate = (props) => {
   return (
     <form onSubmit={(e) =>{
       e.preventDefault();
+      console.log(formData);
       handleParkCreate(formData);
     }}>
       <h3>create park form</h3>

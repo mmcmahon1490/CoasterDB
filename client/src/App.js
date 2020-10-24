@@ -27,7 +27,8 @@ function App() {
   const history = useHistory();
 
   const [park, setPark] = useState({});
-  const [coasters, setCoasters] = useState([])
+  const [coasters, setCoasters] = useState([]);
+  const [parks, setParks] = useState([]);
 
   
 
@@ -55,14 +56,14 @@ function App() {
 
   const handleCoasterCreate = async (coasterData) => {
     const newCoaster = await postCoaster(coasterData);
-    setCoaster((prevState) => [...prevState, newCoaster]);
-    history.push('/');
+    setCoasters((prevState) => [...prevState, newCoaster]);
+    history.push('/parks');
   }
 
   const handleParkCreate = async (parkData) => {
     const newPark = await postPark(parkData);
-    setNewPark((prevState) => [...prevState, newPark]);
-    history.push('/');
+    setParks((prevState) => [...prevState, newPark]);
+    history.push('/parks/');
   }
 
   const handleLogout = () => {
@@ -133,7 +134,10 @@ function App() {
           <ParkDetail />
         </Route>
         <Route path='/parks/'>
-          <Parks />
+          <Parks
+            parks={parks}
+            setParks={setParks}
+          />
         </Route>
         <Route path='/search'>
           <SearchResults />

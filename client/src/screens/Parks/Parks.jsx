@@ -4,9 +4,9 @@ import { getAllCoasters, getOneCoaster } from '../../services/coasters';
 import { getAllParks, getOnePark } from '../../services/parks';
 
 
-const Parks = (props) => {
+const Parks = ({parks, setParks}) => {
   const [coasters, setCoasters] = useState([]);
-  const [parks, setParks] = useState([]);
+  
 
   useEffect(() => {
     const getCoasters = async () => {
