@@ -17,7 +17,7 @@ class ParksController < ApplicationController
   # POST /parks
   def create
     @park = Park.new(park_params)
-    @park.user = @current_user
+    # @park.user = @current_user
 
     if @park.save
       render json: @park, status: :created, location: @park
@@ -48,6 +48,6 @@ class ParksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def park_params
-      params.require(:park).permit(:name, :coaster-num, :location)
+      params.require(:park).permit(:name, :location)
     end
 end
