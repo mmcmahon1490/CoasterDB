@@ -16,7 +16,7 @@ import Home from './screens/Home/Home'
 import SearchResults from './screens/SearchResults/SearchResults'
 import ParkDetail from './screens/ParkDetail/ParkDetail'
 import ParkCreate from './screens/ParkCreate/ParkCreate'
-import TestScreen from './screens/TestScreen/TestScreen'
+import Layout from './components/shared/Layout/Layout'
 import Footer from './components/shared/Footer/Footer'
 import Header from './components/shared/Header/Header'
 import Nav from './components/shared/Nav/Nav'
@@ -97,8 +97,10 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Header />
+      <Layout
+      currentUser={currentUser}
+      handleLogout={handleLogout}
+    >
         <Nav />
       <Switch>
       <Route path='/home'>
@@ -153,7 +155,7 @@ function App() {
         </Route>
       </Switch>
         <Footer />
-    </div>
+        </Layout>
   );
 }
 
