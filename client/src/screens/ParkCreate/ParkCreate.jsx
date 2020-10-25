@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import './ParkCreate.css'
 
 const ParkCreate = (props) => {
@@ -13,10 +12,6 @@ const ParkCreate = (props) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value })
   }
-
-  // useEffect(() => {
-  //   setFormData({...formData, park_id:id})
-  // }, [])
   
 
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllCoasters, getOneCoaster } from '../../services/coasters';
-import { getAllParks, getOnePark } from '../../services/parks';
+import { getAllCoasters } from '../../services/coasters';
+import { getAllParks } from '../../services/parks';
 
 
 const Parks = ({parks, setParks}) => {

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Route, useHistory, Switch } from 'react-router-dom';
 import './App.css';
-// import Home from './screens/Home/Home'
-import { getAllParks, destroyPark, postPark, putPark } from './services/parks';
-import { destroyCoaster, getAllCoasters, getOneCoaster, postCoaster, putCoaster } from './services/coasters';
+import { postPark } from './services/parks';
+import { getAllCoasters, postCoaster, putCoaster } from './services/coasters';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 
 import Register from './screens/Register/Register'
@@ -22,7 +21,6 @@ import Nav from './components/shared/Nav/Nav'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [coaster, setCoaster] = useState();
   const [newPark, setNewPark] = useState();
   const history = useHistory();
 
