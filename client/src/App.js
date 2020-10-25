@@ -145,6 +145,9 @@ function App() {
         <Route path='/search'>
           <SearchResults />
         </Route>
+        <Route path='/test-screen'>
+          <TestScreen />
+        </Route>
         <Route path='/park/:park_id/coaster/:id'>
           <CoasterCard />
         </Route>
